@@ -13,19 +13,17 @@ header {
     text-align: center;
 }
 
-nav {
-    margin-top: 1rem;
-}
-
-.nav-link {
+nav a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+    font-weight: normal;
+    margin: 0 5px;
 }
 
-nav a:hover {
+.nav-link.active {
     text-decoration: underline;
+    font-weight: bold;
+    color: #FFD43B; /* Python yellow */
 }
 
 section {
@@ -38,10 +36,11 @@ footer {
     background: #eee;
     text-align: center;
     padding: 1rem;
+    margin-top: 2rem;
 }
 
 .button-container {
-    text-align: left;
+    text-align: left;  /* Left align buttons */
     margin-top: 20px;
 }
 
@@ -65,9 +64,3 @@ footer {
     color: #000;
     transform: scale(1.05);
 }
-
-iframe {
-    max-width: 100%;
-}
-
-
