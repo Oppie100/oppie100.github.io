@@ -39,6 +39,7 @@ iframe {
     margin-top: 20px;
 }
 
+
 .project-button {
     display: inline-block;
     padding: 12px 24px;
@@ -46,7 +47,7 @@ iframe {
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background-color: #28a745;
+    background-color: #306998; /* Python blue */
     text-decoration: none;
     border: none;
     border-radius: 8px;
@@ -55,7 +56,9 @@ iframe {
 }
 
 .project-button:hover {
-    background-color: #218838;
+    background-color: #FFD43B; /* Python yellow */
+    color: #000; /* Black text on yellow */
     transform: scale(1.05);
 }
+
 
