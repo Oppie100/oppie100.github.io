@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
@@ -6,39 +5,45 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     background: #6200ea;
     color: white;
     padding: 2rem;
     text-align: center;
 }
+
+nav {
+    margin-top: 1rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 section {
     padding: 1.5rem;
     max-width: 800px;
     margin: auto;
 }
+
 footer {
     background: #eee;
     text-align: center;
     padding: 1rem;
-}
-.button {
-    display: inline-block;
-    background: #6200ea;
-    color: white;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-}
-iframe {
-    max-width: 100%;
 }
 
 .button-container {
     text-align: center;
     margin-top: 20px;
 }
-
 
 .project-button {
     display: inline-block;
@@ -57,8 +62,12 @@ iframe {
 
 .project-button:hover {
     background-color: #FFD43B; /* Python yellow */
-    color: #000; /* Black text on yellow */
+    color: #000;
     transform: scale(1.05);
+}
+
+iframe {
+    max-width: 100%;
 }
 
 
