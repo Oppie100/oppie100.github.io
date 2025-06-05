@@ -1,0 +1,35 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #6200ea;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+section {
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: auto;
+}
+footer {
+    background: #eee;
+    text-align: center;
+    padding: 1rem;
+}
+.button {
+    display: inline-block;
+    background: #6200ea;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+iframe {
+    max-width: 100%;
+}
