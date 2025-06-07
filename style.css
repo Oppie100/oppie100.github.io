@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: #1e1f26;
+    background: ; linear-gradient(to right, #e0f7fa, #e1bee7); /* soft cyan to light purple */
     color: #333;
     margin: 0;
     padding: 0;
