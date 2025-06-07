@@ -64,3 +64,30 @@ footer {
     color: #000;
     transform: scale(1.05);
 }
+
+.paper-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #333;
+  padding: 12px 20px;
+  margin: 8px 6px;
+  border: 2px solid #ccc;
+  border-radius: 12px 3px 12px 3px; /* paper-like edges */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.paper-button:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.03);
+}
+
+.paper-button span {
+  font-size: 20px;
+}
+
