@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home - Oppie100</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 16px;
+      margin: 8px 4px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .icon-button:hover {
+      background-color: #0056b3;
+      text-decoration: none;
+      transform: scale(1.05);
+    }
+
+    .icon-button span {
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -21,22 +49,23 @@
     <p>This is my personal website where I share my CV, projects, and diplomas.</p>
   </section>
 
-    <section>
-        <h2>Videos</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-    </section>
+  <section>
+    <h2>Videos</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  </section>
 
- <section>
-  <h2>My CV</h2>
-  <a href="cv.pdf" class="project-button" target="_blank">📄 View CV</a>
-  <a href="cv.pdf" class="project-button" download>⬇️ Download CV</a>
-</section>
+  <section>
+    <h2>My CV</h2>
+    <a href="cv.pdf" class="icon-button" target="_blank">
+      <span>📄</span> View CV
+    </a>
+    <a href="cv.pdf" class="icon-button" download>
+      <span>⬇️</span> Download CV
+    </a>
+  </section>
 
-
-    </section>
-
-    <footer>
-        <p>© 2025 Oppie100</p>
-    </footer>
+  <footer>
+    <p>© 2025 Oppie100</p>
+  </footer>
 </body>
 </html>
