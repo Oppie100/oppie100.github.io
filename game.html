@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ostrich Egg Run</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+    }
+    canvas {
+      background: #c2f0c2;
+      display: block;
+      margin: 20px auto;
+      border: 2px solid #444;
+    }
+    .nav-link {
+      display: inline-block;
+      margin: 10px;
+      text-decoration: none;
+      padding: 8px 16px;
+      background-color: #306998;
+      color: white;
+      border-radius: 5px;
+    }
+    .nav-link:hover {
+      background-color: #FFD43B;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ostrich Egg Run</h1>
+  <a href="index.html" class="nav-link">🏠 Back to Home</a>
+  <canvas id="gameCanvas" width="600" height="300"></canvas>
+  <p>Press <strong>space</strong> or click to jump. Collect eggs 🥚!</p>
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let ostrich = { x: 50, y: 200, width: 40, height: 40, vy: 0, jumping: false };
+    let gravity = 0.8;
+    let jumpPower = -12;
+    let eggs = [];
+    let score = 0;
+
+    function spawnEgg() {
+      eggs.push({ x: 600, y: 220, width: 20, height: 20 });
+    }
+
+    function drawOstrich() {
+      ctx.fillStyle = "#654321";
+      ctx.fillRect(ostrich.x, ostrich.y, ostrich.width, ostrich.height);
+    }
+
+    function drawEggs() {
+      ctx.fillStyle = "#FFD700";
+      eggs.forEach(egg => {
+        ctx.beginPath();
+        ctx.ellipse(egg.x, egg.y, egg.width / 2, egg.height / 2, 0, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+    }
+
+    function drawScore() {
+      ctx.fillStyle = "#333";
+      ctx.font = "20px Arial";
+      ctx.fillText("Score: " + score, 10, 25);
+    }
+
+    function update() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ostrich.vy += gravity;
+      ostrich.y += ostrich.vy;
+
+      if (ostrich.y >= 200) {
+        ostrich.y = 200;
+        ostrich.vy = 0;
+        ostrich.jumping = false;
+      }
+
+      eggs.forEach(egg => {
+        egg.x -= 5;
+        if (
+          egg.x < ostrich.x + ostrich.width &&
+          egg.x + egg.width > ostrich.x &&
+          egg.y < ostrich.y + ostrich.height &&
+          egg.y + egg.height > ostrich.y
+        ) {
+          eggs.splice(eggs.indexOf(egg), 1);
+          score++;
+        }
+      });
+
+      drawOstrich();
+      drawEggs();
+      drawScore();
+    }
+
+    function gameLoop() {
+      update();
+      requestAnimationFrame(gameLoop);
+    }
+
+    setInterval(spawnEgg, 2000);
+    gameLoop();
+
+    document.addEventListener("keydown", e => {
+      if (e.code === "Space" && !ostrich.jumping) {
+        ostrich.vy = jumpPower;
+        ostrich.jumping = true;
+      }
+    });
+
+    canvas.addEventListener("click", () => {
+      if (!ostrich.jumping) {
+        ostrich.vy = jumpPower;
+        ostrich.jumping = true;
+      }
+    });
+  </script>
+</body>
+</html>
+
