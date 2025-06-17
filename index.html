@@ -3,70 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home - Oppie100</title>
+  <title>Johan Opperman - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .icon-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 16px;
-      margin: 8px 4px;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-
-    .icon-button:hover {
-      background-color: #0056b3;
-      text-decoration: none;
-      transform: scale(1.05);
-    }
-
-    .icon-button span {
-      font-size: 18px;
-    }
-  </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to My Website</h1>
+    <h1>Johan Opperman</h1>
+    <p>Tech Enthusiast • Python Developer • Raspberry Pi Builder</p>
     <nav>
-      <a href="index.html" class="nav-link active">Home</a> |
-      <a href="about.html" class="nav-link">About Me</a> |
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About Me</a>
       <a href="projects.html" class="nav-link">Projects</a>
-      <a href="game.html" class="nav-link">🎮 Game</a>
+      <a href="cv.html" class="nav-link">CV</a>
     </nav>
   </header>
 
-  <section>
-    <h2>Introduction</h2>
-    <p>This is my personal website where I share my CV, projects, and diplomas.</p>
+  <section onclick="window.location='about.html'">
+    <h2>About Me</h2>
+    <p>Get to know more about my background, experience, and passions.</p>
   </section>
 
-  <section>
-    <h2>Videos</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <section onclick="window.location='projects.html'">
+    <h2>My Projects</h2>
+    <p>Explore my Python, Raspberry Pi, and other technical projects.</p>
   </section>
 
-  <section>
-     <h2>My CV</h2>
-    <a href="cv.pdf" class="paper-button" target="_blank">
-      <span>📄</span> View CV
-    </a>
-    <a href="cv.pdf" class="paper-button" download>
-      <span>📎</span> Download CV
-    </a>
-   </section>
+  <section onclick="window.location='cv.html'">
+    <h2>View My CV</h2>
+    <p>Access or download my professional CV and qualifications.</p>
+  </section>
+
+  <section onclick="window.open('https://www.youtube.com/@yourchannel', '_blank')">
+    <h2>Project Videos</h2>
+    <p>Watch demonstrations of my projects in action on YouTube.</p>
+  </section>
 
   <footer>
-    <p>© 2025 Oppie100</p>
+    <p>© 2025 Johan Opperman • All Rights Reserved</p>
   </footer>
 </body>
 </html>
