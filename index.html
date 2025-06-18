@@ -2,37 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home - Oppie100</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to My Website</h1>
-      <button class="explore-button" onclick="toggleMenu()">Explore</button>
+  <div class="hero">
+    <div class="overlay">
+      <h1>Hello, I'm Johan</h1>
+      <p>Tech Enthusiast | Developer | Maker</p>
     </div>
-  </section>
+    <a class="explore-button" onclick="toggleMenu()">☰ Explore</a>
+  </div>
 
-  <!-- Sidebar Menu -->
-  <div class="sidebar" id="sidebar">
-    <span class="close-btn" onclick="toggleMenu()">✖</span>
-    <h2>Menu</h2>
-    <a href="index.html">🏠 Home</a>
-    <a href="about.html">👤 About Me</a>
-    <a href="projects.html">💡 Projects</a>
-    <a href="cv.pdf" target="_blank">📄 My CV</a>
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    <a href="about.html">About Me</a>
+    <a href="projects.html">Projects</a>
+    <a href="videos.html">Videos</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html">Contact</a>
   </div>
 
   <script>
     function toggleMenu() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('open');
+      document.getElementById("sidebar").classList.toggle("active");
     }
   </script>
-
 </body>
 </html>
+
 
