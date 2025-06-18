@@ -6,34 +6,85 @@ body, html {
 }
 
 .hero {
-  background-image: url('background.jpg'); /* Use your image file name */
+  background-image: url('background.jpg'); /* replace with your image name */
   background-size: cover;
   background-position: center;
   height: 100vh;
   position: relative;
+  color: white;
 }
 
 .overlay {
   background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  text-align: center;
-  padding-top: 30vh;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
-.enter-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 16px;
+.overlay h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.overlay p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.explore-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 12px 20px;
   color: white;
-  background-color: #6200ea;
   text-decoration: none;
+  font-size: 18px;
   border-radius: 8px;
-  transition: transform 0.3s;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.enter-button:hover {
-  transform: scale(1.05);
-  background-color: #3700b3;
+.explore-button:hover {
+  background-color: #6200ea;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #222;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 999;
+}
+
+.sidebar a {
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #444;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+}
+.sidebar.active {
+  width: 250px;
 }
