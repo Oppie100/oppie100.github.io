@@ -111,3 +111,53 @@ body, html {
     transform: scale(1.05);
 }
 
+/* Sidebar Menu */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: #0d1117;
+    color: #fff;
+    box-shadow: -5px 0 20px rgba(0, 255, 255, 0.15);
+    padding: 2rem;
+    transition: right 0.4s ease;
+    z-index: 999;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #00ffe7;
+    border-bottom: 1px solid #00ffe7;
+    padding-bottom: 10px;
+}
+
+.sidebar a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    margin: 1rem 0;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background: #1f6feb;
+    color: #fff;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+}
