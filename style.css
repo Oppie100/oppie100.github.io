@@ -1,113 +1,44 @@
-body, html {
+/* Reset default margin/padding */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  height: 100%;
+  box-sizing: border-box;
 }
 
+/* Hero Section */
 .hero {
-  background-image: url('background.jpg'); /* replace with your image name */
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  position: relative;
-  color: white;
+    background: url('your-image.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.overlay h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.overlay p {
-  font-size: 1.5rem;
-  margin-top: 10px;
-}
-
-.explore-button {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 12px 20px;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.explore-button:hover {
-  background-color: #6200ea;
-}
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background-color: #222;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-  z-index: 999;
-}
-
-.sidebar a {
-  padding: 12px 24px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  background-color: #444;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 36px;
-}
-.sidebar.active {
-  width: 250px;
-}
-/* Explore Button */
-.explore-button {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+.hero-content h1 {
     color: white;
-    padding: 14px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.explore-button {
+    background-color: #0ef;
+    color: #000;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.2rem;
     border-radius: 50px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-    transition: all 0.3s ease;
-    z-index: 1000;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 238, 255, 0.6);
 }
 
 .explore-button:hover {
-    background: linear-gradient(135deg, #1c1c1c, #0d7377);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+    background-color: #00c6ff;
     transform: scale(1.05);
 }
 
@@ -124,6 +55,7 @@ body, html {
     padding: 2rem;
     transition: right 0.4s ease;
     z-index: 999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .sidebar.open {
@@ -146,6 +78,7 @@ body, html {
     padding: 10px;
     border-radius: 8px;
     transition: background 0.3s;
+    font-size: 1.1rem;
 }
 
 .sidebar a:hover {
@@ -160,4 +93,5 @@ body, html {
     font-size: 24px;
     color: #ccc;
     cursor: pointer;
+    user-select: none;
 }
