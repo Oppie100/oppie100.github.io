@@ -1,0 +1,39 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
+}
+
+.hero {
+  background-image: url('background.jpg'); /* Use your image file name */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  padding-top: 30vh;
+  height: 100%;
+}
+
+.enter-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: white;
+  background-color: #6200ea;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.enter-button:hover {
+  transform: scale(1.05);
+  background-color: #3700b3;
+}
