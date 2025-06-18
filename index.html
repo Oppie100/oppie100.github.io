@@ -7,20 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Hero Section -->
   <div class="hero">
-    <div class="overlay">
-      <h1>Johan Opperman</h1>
+    <button class="explore-button" onclick="toggleMenu()">☰ Explore</button>
+    <div class="hero-text">
+      <h1>Hello, I'm Johan</h1>
       <p>Tech Enthusiast | Developer | Maker</p>
-    </div>
-    <div class="top-right">
-      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
     </div>
   </div>
 
-  <!-- Sidebar Menu -->
   <div id="sidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
     <a href="about.html">About Me</a>
     <a href="projects.html">Projects</a>
     <a href="videos.html">Videos</a>
@@ -28,9 +24,8 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- Sidebar Toggle Script -->
   <script>
-    function toggleSidebar() {
+    function toggleMenu() {
       document.getElementById("sidebar").classList.toggle("active");
     }
   </script>
