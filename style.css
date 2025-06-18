@@ -1,31 +1,26 @@
-/* Basic Reset */
-* {
+/* Reset */
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body, html {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
-/* Hero Section */
+/* Hero section */
 .hero {
   position: relative;
   height: 100vh;
-  background: url('your-background.jpg') no-repeat center center/cover;
+  background: #000; /* solid black background */
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
   text-align: center;
-  padding: 0 20px;
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  background-color: rgba(10, 10, 30, 0.6);
   padding: 2rem 3rem;
   border-radius: 12px;
   max-width: 600px;
@@ -41,24 +36,30 @@ body, html {
   opacity: 0.9;
 }
 
-/* Explore Button */
+/* Explore button */
 .explore-button {
-  margin-top: 2rem;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: #00ffff;
-  background: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
   border: 2px solid #00ffff;
-  padding: 12px 28px;
-  border-radius: 40px;
-  transition: background-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  color: #00ffff;
+  font-size: 28px;
+  line-height: 46px;
+  text-align: center;
+  cursor: pointer;
   user-select: none;
-  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  box-shadow: 0 0 10px #00ffff88;
 }
 
 .explore-button:hover {
   background-color: #00ffff;
   color: #000;
+  transform: scale(1.05);
 }
 
 /* Sidebar */
@@ -68,36 +69,44 @@ body, html {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #111;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   overflow-x: hidden;
-  transition: 0.3s;
+  transition: 0.3s ease;
   padding-top: 60px;
+  box-shadow: -2px 0 8px rgba(0,255,255,0.4);
   z-index: 1000;
 }
 
 .sidebar.active {
-  width: 250px;
+  width: 260px;
 }
 
 .sidebar a {
-  padding: 15px 30px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: #ddd;
+  padding: 20px 30px;
   display: block;
-  transition: background-color 0.2s;
+  text-decoration: none;
+  font-size: 1.15rem;
+  color: #00ffff;
+  border-bottom: 1px solid #00ffff33;
+  transition: background-color 0.25s, color 0.25s;
 }
 
 .sidebar a:hover {
-  background-color: #00ffff;
-  color: #000;
+  background-color: #00ffff22;
+  color: #ffffff;
 }
 
 .closebtn {
   position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 2.5rem;
+  top: 12px;
+  right: 18px;
+  font-size: 30px;
   color: #00ffff;
   cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.closebtn:hover {
+  color: #fff;
 }
