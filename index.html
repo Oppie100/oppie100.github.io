@@ -7,26 +7,50 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-  <!-- Floating Chat Icon -->
-<div class="chatbot-icon" onclick="toggleAIChat()">🤖</div>
+<!-- Chat Icon -->
+<div class="chat-launcher" onclick="toggleChat()">💬</div>
 
-<!-- Chatbot Window -->
-<div class="chatbot-box" id="chatbotBox">
-  <div class="chatbot-header">
-    Ask Me Anything
-    <span class="close-chatbot" onclick="toggleAIChat()">×</span>
+<!-- Chat Box (Initially Hidden) -->
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header">
+    Chat with Johan
+    <span class="close-chat" onclick="toggleChat()">×</span>
   </div>
-  <div class="chatbot-body" id="chatbotMessages">
-    <div class="bot-msg">Hi! I can answer questions about Johan's CV 💼</div>
+  <div class="chat-content" id="chatContent">
+    <div class="bot-message">Hi! 👋 Ask me anything about Johan’s CV or projects.</div>
   </div>
   <input
     type="text"
-    id="chatbotInput"
-    placeholder="Type your question..."
-    onkeydown="handleBotInput(event)"
+    id="chatInput"
+    placeholder="Type your message..."
+    onkeydown="handleChatInput(event)"
   />
 </div>
 
+<script>
+  function toggleChat() {
+    document.getElementById("chatContainer").classList.toggle("open");
+  }
+
+  function handleChatInput(event) {
+    if (event.key === "Enter") {
+      const input = document.getElementById("chatInput");
+      const message = input.value.trim();
+      if (!message) return;
+
+      const chatContent = document.getElementById("chatContent");
+      chatContent.innerHTML += `<div class="user-message">${message}</div>`;
+      input.value = "";
+
+      // Simulate bot reply
+      setTimeout(() => {
+        chatContent.innerHTML += `<div class="bot-message">I'm looking that up for you! 🤖</div>`;
+        chatContent.scrollTop = chatContent.scrollHeight;
+      }, 800);
+    }
+  }
+</script>
+  
   
 <body>
   <!-- Sidebar -->
