@@ -7,12 +7,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-  <div class="chat-bubble" onclick="toggleChat()">
-  💬
-</div>
+  <!-- Floating Chat Bubble -->
+<div class="chat-bubble" onclick="toggleChat()">💬</div>
 
+<!-- Hidden Chat Box -->
 <div class="chat-box" id="chatBox">
-  <div class="chat-header">Chat with me</div>
+  <div class="chat-header">
+    Chat with me
+    <span class="close-chat" onclick="toggleChat()">×</span>
+  </div>
   <div class="chat-body">
     <p>Hi there! Ask anything or leave a message 📩</p>
     <textarea id="chatMessage" placeholder="Type your message..."></textarea>
@@ -28,12 +31,13 @@
   function sendMessage() {
     const msg = document.getElementById("chatMessage").value;
     if (msg.trim()) {
-      alert("Message sent!\n(We’ll later connect this to WhatsApp or email)");
+      alert("Message sent!\n(You’ll get this on WhatsApp or email soon)");
       document.getElementById("chatMessage").value = "";
     }
   }
 </script>
 
+  
 <body>
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
