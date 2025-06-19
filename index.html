@@ -31,48 +31,49 @@
 
   <!-- Chat Box -->
   <div class="chat-container" id="chatContainer">
-    <div class="chat-header">
-      Chat with Johan
-      <span class="close-chat" onclick="toggleChat()">×</span>
-    </div>
-    <div class="chat-content" id="chatContent">
-      <div class="bot-message">Hi! 👋 Ask me anything about Johan’s CV or projects.</div>
-    </div>
-    <input
-      type="text"
-      id="chatInput"
-      placeholder="Type your message..."
-      onkeydown="handleChatInput(event)"
-    />
+  <div class="chat-header">
+    Chat with Johan
+    <span class="close-chat" onclick="toggleChat()">×</span>
+  </div>
+  <div class="chat-content" id="chatContent">
+    <div class="bot-message">Hi! 👋 Ask me anything about Johan’s CV or projects.</div>
+  </div>
+  <input
+    type="text"
+    id="chatInput"
+    placeholder="Type your message..."
+    onkeydown="handleChatInput(event)"
+  />
   </div>
 
   <!-- Scripts -->
   <script>
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("active");
+     function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+  }
+
+  function toggleChat() {
+    const chat = document.getElementById("chatContainer");
+    chat.classList.toggle("open");
+  }
+
+  function handleChatInput(event) {
+    if (event.key === "Enter") {
+      const input = document.getElementById("chatInput");
+      const message = input.value.trim();
+      if (!message) return;
+
+      const chatContent = document.getElementById("chatContent");
+      chatContent.innerHTML += `<div class="user-message">${message}</div>`;
+      input.value = "";
+
+      setTimeout(() => {
+        chatContent.innerHTML += `<div class="bot-message">I'm checking that for you 🤖</div>`;
+        chatContent.scrollTop = chatContent.scrollHeight;
+      }, 800);
     }
-
-    function toggleChat() {
-      document.getElementById("chatContainer").classList.toggle("open");
-    }
-
-    function handleChatInput(event) {
-      if (event.key === "Enter") {
-        const input = document.getElementById("chatInput");
-        const message = input.value.trim();
-        if (!message) return;
-
-        const chatContent = document.getElementById("chatContent");
-        chatContent.innerHTML += `<div class="user-message">${message}</div>`;
-        input.value = "";
-
-        setTimeout(() => {
-          chatContent.innerHTML += `<div class="bot-message">I'm looking that up for you! 🤖</div>`;
-          chatContent.scrollTop = chatContent.scrollHeight;
-        }, 800);
-      }
-    }
-  </script>
-
+  }
+</script>
+    
 </body>
 </html>
