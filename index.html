@@ -26,18 +26,70 @@
     <button class="explore-button" onclick="toggleSidebar()">☰ Explore</button>
   </div>
 
-  <!-- WhatsApp Chat Icon -->
-  <a href="https://wa.me/27799231887?text=Hi%20Johan!%20I%20have%20a%20question%20about%20your%20CV." 
-     target="_blank" 
-     class="chat-launcher" 
-     title="Chat with me on WhatsApp">💬</a>
+  <!-- Chat Icon -->
+  <div class="chat-launcher" onclick="toggleChat()">💬</div>
 
+  <!-- Chat Box -->
+  <div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+      Chat with Johan
+      <span class="close-chat" onclick="toggleChat()">×</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <div class="bot-message">Hi! 👋 Ask me anything about Johan’s CV or projects.</div>
+    </div>
+    <input
+      type="text"
+      id="chatInput"
+      placeholder="Type your message..."
+      onkeydown="handleChatInput(event)"
+    />
+  </div>
+
+  <!-- Scripts -->
   <script>
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("active");
     }
+
+    function toggleChat() {
+      const chat = document.getElementById("chatContainer");
+      chat.classList.toggle("open");
+
+      if (chat.classList.contains("open")) {
+        const chatContent = document.getElementById("chatContent");
+
+        // Prevent duplicate auto-status message
+        if (!document.querySelector(".bot-message.auto-status")) {
+          const autoMessage = document.createElement("div");
+          autoMessage.className = "bot-message auto-status";
+          autoMessage.textContent = "⚠️ I'm currently unavailable but will get back to you soon!";
+
+          chatContent.prepend(autoMessage);
+          chatContent.scrollTop = 0;
+        }
+      }
+    }
+
+    function handleChatInput(event) {
+      if (event.key === "Enter") {
+        const input = document.getElementById("chatInput");
+        const message = input.value.trim();
+        if (!message) return;
+
+        const chatContent = document.getElementById("chatContent");
+        chatContent.innerHTML += `<div class="user-message">${message}</div>`;
+        input.value = "";
+
+        setTimeout(() => {
+          chatContent.innerHTML += `<div class="bot-message">I'm checking that for you 🤖</div>`;
+          chatContent.scrollTop = chatContent.scrollHeight;
+        }, 800);
+      }
+    }
   </script>
-  
+
 </body>
 </html>
+
 
