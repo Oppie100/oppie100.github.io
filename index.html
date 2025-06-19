@@ -6,6 +6,34 @@
   <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+  <div class="chat-bubble" onclick="toggleChat()">
+  💬
+</div>
+
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">Chat with me</div>
+  <div class="chat-body">
+    <p>Hi there! Ask anything or leave a message 📩</p>
+    <textarea id="chatMessage" placeholder="Type your message..."></textarea>
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleChat() {
+    document.getElementById("chatBox").classList.toggle("show");
+  }
+
+  function sendMessage() {
+    const msg = document.getElementById("chatMessage").value;
+    if (msg.trim()) {
+      alert("Message sent!\n(We’ll later connect this to WhatsApp or email)");
+      document.getElementById("chatMessage").value = "";
+    }
+  }
+</script>
+
 <body>
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
