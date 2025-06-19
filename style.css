@@ -164,3 +164,23 @@ body, html {
 .chat-launcher:hover {
   background-color: #1DA851;
 }
+
+.status-message {
+  padding: 12px 30px;
+  font-size: 14px;
+  color: #ff5555;
+  background-color: #330000;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.sidebar.active .status-message {
+  opacity: 1;
+  transform: translateY(0);
+}
