@@ -23,57 +23,21 @@
       <h1>Johan Opperman</h1>
       <p>Tech Enthusiast • Developer • Creator</p>
     </div>
-    <a class="explore-button" onclick="toggleSidebar()">☰ Explore</a>
+    <button class="explore-button" onclick="toggleSidebar()">☰ Explore</button>
   </div>
 
-  <!-- Chat Icon -->
-  <div class="chat-launcher" onclick="toggleChat()">💬</div>
+  <!-- WhatsApp Chat Icon -->
+  <a href="https://wa.me/27799231887?text=Hi%20Johan!%20I%20have%20a%20question%20about%20your%20CV." 
+     target="_blank" 
+     class="chat-launcher" 
+     title="Chat with me on WhatsApp">💬</a>
 
-  <!-- Chat Box -->
-  <div class="chat-container" id="chatContainer">
-  <div class="chat-header">
-    Chat with Johan
-    <span class="close-chat" onclick="toggleChat()">×</span>
-  </div>
-  <div class="chat-content" id="chatContent">
-    <div class="bot-message">Hi! 👋 Ask me anything about Johan’s CV or projects.</div>
-  </div>
-  <input
-    type="text"
-    id="chatInput"
-    placeholder="Type your message..."
-    onkeydown="handleChatInput(event)"
-  />
-  </div>
-
-  <!-- Scripts -->
   <script>
-     function toggleSidebar() {
-    document.getElementById("sidebar").classList.toggle("active");
-  }
-
-  function toggleChat() {
-    const chat = document.getElementById("chatContainer");
-    chat.classList.toggle("open");
-  }
-
-  function handleChatInput(event) {
-    if (event.key === "Enter") {
-      const input = document.getElementById("chatInput");
-      const message = input.value.trim();
-      if (!message) return;
-
-      const chatContent = document.getElementById("chatContent");
-      chatContent.innerHTML += `<div class="user-message">${message}</div>`;
-      input.value = "";
-
-      setTimeout(() => {
-        chatContent.innerHTML += `<div class="bot-message">I'm checking that for you 🤖</div>`;
-        chatContent.scrollTop = chatContent.scrollHeight;
-      }, 800);
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
     }
-  }
-</script>
-    
+  </script>
+  
 </body>
 </html>
+
