@@ -6,56 +6,11 @@
   <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
-<!-- Chat Icon -->
-<div class="chat-launcher" onclick="toggleChat()">💬</div>
-
-<!-- Chat Box (Initially Hidden) -->
-<div class="chat-container" id="chatContainer">
-  <div class="chat-header">
-    Chat with Johan
-    <span class="close-chat" onclick="toggleChat()">×</span>
-  </div>
-  <div class="chat-content" id="chatContent">
-    <div class="bot-message">Hi! 👋 Ask me anything about Johan’s CV or projects.</div>
-  </div>
-  <input
-    type="text"
-    id="chatInput"
-    placeholder="Type your message..."
-    onkeydown="handleChatInput(event)"
-  />
-</div>
-
-<script>
-  function toggleChat() {
-    document.getElementById("chatContainer").classList.toggle("open");
-  }
-
-  function handleChatInput(event) {
-    if (event.key === "Enter") {
-      const input = document.getElementById("chatInput");
-      const message = input.value.trim();
-      if (!message) return;
-
-      const chatContent = document.getElementById("chatContent");
-      chatContent.innerHTML += `<div class="user-message">${message}</div>`;
-      input.value = "";
-
-      // Simulate bot reply
-      setTimeout(() => {
-        chatContent.innerHTML += `<div class="bot-message">I'm looking that up for you! 🤖</div>`;
-        chatContent.scrollTop = chatContent.scrollHeight;
-      }, 800);
-    }
-  }
-</script>
-  
-  
 <body>
+
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
     <a href="projects.html">Projects</a>
     <a href="cv.html">CV</a>
@@ -71,10 +26,53 @@
     <a class="explore-button" onclick="toggleSidebar()">☰ Explore</a>
   </div>
 
+  <!-- Chat Icon -->
+  <div class="chat-launcher" onclick="toggleChat()">💬</div>
+
+  <!-- Chat Box -->
+  <div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+      Chat with Johan
+      <span class="close-chat" onclick="toggleChat()">×</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <div class="bot-message">Hi! 👋 Ask me anything about Johan’s CV or projects.</div>
+    </div>
+    <input
+      type="text"
+      id="chatInput"
+      placeholder="Type your message..."
+      onkeydown="handleChatInput(event)"
+    />
+  </div>
+
+  <!-- Scripts -->
   <script>
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("active");
     }
+
+    function toggleChat() {
+      document.getElementById("chatContainer").classList.toggle("open");
+    }
+
+    function handleChatInput(event) {
+      if (event.key === "Enter") {
+        const input = document.getElementById("chatInput");
+        const message = input.value.trim();
+        if (!message) return;
+
+        const chatContent = document.getElementById("chatContent");
+        chatContent.innerHTML += `<div class="user-message">${message}</div>`;
+        input.value = "";
+
+        setTimeout(() => {
+          chatContent.innerHTML += `<div class="bot-message">I'm looking that up for you! 🤖</div>`;
+          chatContent.scrollTop = chatContent.scrollHeight;
+        }, 800);
+      }
+    }
   </script>
+
 </body>
 </html>
