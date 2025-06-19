@@ -144,7 +144,7 @@ body, html {
   border-radius: 3px;
 }
 
-/* Chat bubble */
+/* Chat Bubble */
 .chat-bubble {
   position: fixed;
   bottom: 25px;
@@ -164,14 +164,14 @@ body, html {
   background-color: #005fa3;
 }
 
-/* Chat box */
+/* Chat Box */
 .chat-box {
   display: none;
   position: fixed;
   bottom: 90px;
   right: 25px;
-  width: 250px;
-  background: white;
+  width: 260px;
+  background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 5px 25px rgba(0,0,0,0.3);
   z-index: 1000;
@@ -188,34 +188,49 @@ body, html {
   color: white;
   padding: 10px;
   font-weight: bold;
+  position: relative;
+}
+
+.close-chat {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 .chat-body {
   padding: 10px;
 }
 
+.chat-body p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
 .chat-body textarea {
   width: 100%;
   height: 60px;
-  margin-top: 5px;
   resize: none;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  padding: 8px;
   font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 .chat-body button {
-  margin-top: 5px;
+  margin-top: 8px;
   width: 100%;
-  background: #28a745;
+  padding: 8px;
+  background-color: #28a745;
   color: white;
   border: none;
-  padding: 8px;
-  border-radius: 5px;
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .chat-body button:hover {
-  background: #218838;
+  background-color: #218838;
 }
+
