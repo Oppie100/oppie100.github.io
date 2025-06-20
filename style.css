@@ -7,6 +7,8 @@
 
 /* General styles */
 body, html {
+  margin: 0;
+  padding: 0;
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #000000; /* Black background */
@@ -168,3 +170,4 @@ body, html {
   transform: scale(1.1);
   box-shadow: 0 0 18px #25d366, 0 0 30px #25d366;
 }
+
