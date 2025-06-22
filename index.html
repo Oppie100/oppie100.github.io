@@ -4,100 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Johan Opperman</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-    }
-
-    /* Sidebar: Explore (left) */
+    /* Sidebar */
     .sidebar {
       height: 100%;
       width: 0;
       position: fixed;
+      z-index: 1000;
       top: 0;
       left: 0;
-      background-color: #222;
+      background-color: #111;
       overflow-x: hidden;
       transition: 0.3s;
       padding-top: 60px;
-      z-index: 1000;
     }
 
     .sidebar.active {
       width: 250px;
     }
 
-    /* Sidebar: Projects (right) */
-    .projects-panel {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: #333;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-      z-index: 1001;
-    }
-
-    .projects-panel.active {
-      width: 250px;
-    }
-
-    .sidebar a,
-    .projects-panel a {
-      display: block;
-      padding: 12px 20px;
-      color: #ccc;
+    .sidebar a {
+      padding: 10px 20px;
       text-decoration: none;
+      font-size: 18px;
+      color: #ddd;
+      display: block;
+      transition: 0.2s;
     }
 
-    .sidebar a:hover,
-    .projects-panel a:hover {
-      color: white;
+    .sidebar a:hover {
+      color: #fff;
     }
 
     .closebtn {
       position: absolute;
-      top: 10px;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
+      top: 0;
+      right: 15px;
+      font-size: 36px;
     }
 
-    .sidebar .closebtn {
-      right: 20px;
-    }
-
-    .projects-panel .closebtn {
-      left: 20px;
-    }
-
+    /* Hero section */
     .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #1a1a1a;
+      color: white;
       text-align: center;
-      padding-top: 25vh;
     }
 
-    .explore-button,
-    .projects-button {
-      margin: 10px;
+    .explore-button {
+      margin-top: 20px;
       padding: 10px 20px;
       font-size: 18px;
-      cursor: pointer;
     }
 
+    /* Submenu styles */
+    .submenu {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+
+    .submenu.open {
+      max-height: 500px;
+    }
+
+    .submenu a {
+      padding-left: 40px;
+      font-size: 16px;
+      color: #bbb;
+    }
+
+    /* WhatsApp Button */
     .whatsapp-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background-color: #25d366;
-      border-radius: 50%;
       padding: 10px;
-      z-index: 9999;
+      border-radius: 50%;
+      z-index: 1001;
     }
 
     .whatsapp-button img {
@@ -108,30 +98,34 @@
 </head>
 <body>
 
-  <!-- Explore Sidebar -->
+  <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
-    <span class="closebtn" onclick="toggleSidebar()">&times;</span>
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
+
+    <!-- Toggle Projects submenu -->
+    <a href="javascript:void(0)" onclick="toggleSubmenu()">Projects &#9662;</a>
+    <div id="projects-submenu" class="submenu">
+      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank">
+        Raspberry Pi Pico Projects
+      </a>
+      <!-- Add more project links below -->
+    </div>
+
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- Projects Sidebar -->
-  <div id="projectsPanel" class="projects-panel">
-    <span class="closebtn" onclick="toggleProjects()">&times;</span>
-    <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank">Raspberry Pi Pico Projects</a>
-    <!-- Add more project links here -->
-  </div>
-
   <!-- Hero Section -->
   <div class="hero">
-    <h1>Johan Opperman</h1>
-    <p>Tech Enthusiast • Developer • Creator</p>
+    <div class="hero-content">
+      <h1>Johan Opperman</h1>
+      <p>Tech Enthusiast • Developer • Creator</p>
+    </div>
     <button class="explore-button" onclick="toggleSidebar()">☰ Explore</button>
-    <button class="projects-button" onclick="toggleProjects()">📁 Projects</button>
   </div>
 
-  <!-- WhatsApp Button -->
+  <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/27799231887?text=Hi%20Johan!%20I%20have%20a%20question%20about%20your%20CV." 
      target="_blank" 
      class="whatsapp-button" 
@@ -139,14 +133,14 @@
     <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp Icon" />
   </a>
 
-  <!-- JavaScript -->
   <script>
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("active");
     }
 
-    function toggleProjects() {
-      document.getElementById("projectsPanel").classList.toggle("active");
+    function toggleSubmenu() {
+      const submenu = document.getElementById("projects-submenu");
+      submenu.classList.toggle("open");
     }
   </script>
 
