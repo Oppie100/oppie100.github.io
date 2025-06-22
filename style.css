@@ -185,7 +185,7 @@ body, html {
 .whatsapp-button {
   position: fixed;
   bottom: 25px;
-  left: 25px; /* changed from right to left */
+  right: 25px; /* changed from right to left */
   width: 60px;
   height: 60px;
   background-color: #00f2fe;
