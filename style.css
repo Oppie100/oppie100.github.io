@@ -142,3 +142,34 @@ body, html {
   box-shadow: 0 0 18px #00f2fe, 0 0 30px #00f2fe;
 }
 
+/* Submenu Slide Styles */
+.submenu-slide {
+  position: fixed;
+  top: 70px; /* match sidebar padding */
+  right: -280px;
+  width: 280px;
+  height: auto;
+  background: #1a1a1a;
+  box-shadow: -4px 0 10px rgba(0, 242, 254, 0.2);
+  padding: 20px;
+  transition: right 0.4s ease;
+  z-index: 1001;
+}
+
+.submenu-slide a {
+  display: block;
+  color: #00f2fe;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.submenu-slide a:hover {
+  color: #0ff;
+}
+
+/* Active state */
+.submenu-slide.open {
+  right: 0;
+}
