@@ -2,43 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Sidebar -->
+  <!-- Sidebar Menu -->
   <div id="sidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
-    <a href="about.html">About</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    <a href="about.html">About Me</a>
     <a href="projects.html">Projects</a>
+    <a href="videos.html">Videos</a>
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
   </div>
 
   <!-- Hero Section -->
   <div class="hero">
+    <button class="explore-button" onclick="toggleMenu()">☰ Explore</button>
     <div class="hero-content">
       <h1>Johan Opperman</h1>
-      <p>Tech Enthusiast • Developer • Creator</p>
+      <p>Tech Enthusiast • Developer • Maker</p>
     </div>
-    <button class="explore-button" onclick="toggleSidebar()">☰ Explore</button>
   </div>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/27799231887?text=Hi%20Johan!%20I%20have%20a%20question%20about%20your%20CV." 
-     target="_blank" 
-     class="whatsapp-button" 
-     title="Chat with me on WhatsApp">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp Icon" />
-  </a>
-
+  <!-- Sidebar Script -->
   <script>
-    function toggleSidebar() {
+    function toggleMenu() {
       document.getElementById("sidebar").classList.toggle("active");
     }
   </script>
-
 </body>
 </html>
+
