@@ -12,19 +12,19 @@
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-      <!-- Projects with sliding submenu -->
-<a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
-<div id="projects-submenu" class="submenu-slide">
-  <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
-    Raspberry Pi Pico Projects
-  </a>
-</div>
+
+    <!-- Projects submenu toggle -->
+    <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
+    <div id="projects-submenu" class="submenu">
+      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
+        Raspberry Pi Pico Projects
+      </a>
+    </div>
+
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
   </div>
 
- 
   <!-- Hero Section -->
   <div class="hero">
     <div class="hero-content">
@@ -45,6 +45,11 @@
   <script>
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("active");
+    }
+
+    function toggleSubmenu() {
+      const submenu = document.getElementById("projects-submenu");
+      submenu.classList.toggle("open");
     }
   </script>
 
