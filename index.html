@@ -70,15 +70,14 @@
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("active");
     }
+function openProjectsSubmenu() {
+    document.getElementById("projectsSidebar").classList.add("active");
+  }
 
-    function toggleSubmenu() {
-      const submenu = document.getElementById("projects-submenu");
-      if (submenu.style.display === "none" || submenu.style.display === "") {
-        submenu.style.display = "block";
-      } else {
-        submenu.style.display = "none";
-      }
-    }
+  function closeProjectsSubmenu() {
+    document.getElementById("projectsSidebar").classList.remove("active");
+  }
+   
   </script>
 
 </body>
