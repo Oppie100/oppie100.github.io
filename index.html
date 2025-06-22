@@ -17,41 +17,10 @@
     .submenu a:hover {
       color: #fff;
     }
+    /* Optional: cursor pointer on submenu toggle */
     .submenu-toggle {
       cursor: pointer;
       user-select: none;
-    }
-
-    /* Projects Slide-out Panel */
-    .projects-sidebar {
-      position: fixed;
-      top: 0;
-      right: -280px;
-      width: 280px;
-      height: 100vh;
-      background: #1a1a1a;
-      box-shadow: -4px 0 15px rgba(0, 242, 254, 0.3);
-      overflow-y: auto;
-      transition: right 0.4s ease;
-      z-index: 1002;
-      padding-top: 70px;
-    }
-
-    .projects-sidebar.active {
-      right: 0;
-    }
-
-    .projects-sidebar a {
-      display: block;
-      padding: 15px 30px;
-      color: #00f2fe;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .projects-sidebar a:hover {
-      color: #0ff;
     }
   </style>
 </head>
@@ -61,17 +30,18 @@
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
-    <a href="javascript:void(0)" class="submenu-toggle" onclick="openProjectsSubmenu()">Projects &#9656;</a>
+
+    <!-- Projects with submenu -->
+    <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
+    <div id="projects-submenu" class="submenu" style="display: none;">
+      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
+        Raspberry Pi Pico Projects
+      </a>
+      <!-- Add more project links here -->
+    </div>
+
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
-  </div>
-
-  <!-- Slide-out Projects Panel -->
-  <div id="projectsSidebar" class="projects-sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeProjectsSubmenu()">&larr; Back</a>
-    <h3 style="padding: 20px; color: #00f2fe;">Projects</h3>
-    <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank">Raspberry Pi Pico Projects</a>
-    <!-- Add more project links here -->
   </div>
 
   <!-- Hero Section -->
@@ -88,7 +58,7 @@
      target="_blank" 
      class="whatsapp-button" 
      title="Chat with me on WhatsApp">
-    <img src="https://img.icons8.com/ios-filled/50/00f2fe/whatsapp--v1.png" alt="WhatsApp Icon" />
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp Icon" />
   </a>
 
   <script>
@@ -96,15 +66,15 @@
       document.getElementById("sidebar").classList.toggle("active");
     }
 
-    function openProjectsSubmenu() {
-      document.getElementById("projectsSidebar").classList.add("active");
-    }
-
-    function closeProjectsSubmenu() {
-      document.getElementById("projectsSidebar").classList.remove("active");
+    function toggleSubmenu() {
+      const submenu = document.getElementById("projects-submenu");
+      if (submenu.style.display === "none" || submenu.style.display === "") {
+        submenu.style.display = "block";
+      } else {
+        submenu.style.display = "none";
+      }
     }
   </script>
 
 </body>
 </html>
-
