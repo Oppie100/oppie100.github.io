@@ -172,3 +172,35 @@ body, html {
   box-shadow: 0 0 25px #00f2fe, 0 0 45px #0061fe;
 }
 
+/* Projects Slide-out Panel */
+.projects-sidebar {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100vh;
+  background: #1a1a1a;
+  box-shadow: -4px 0 15px rgba(0, 242, 254, 0.3);
+  overflow-y: auto;
+  transition: right 0.4s ease;
+  z-index: 1002;
+  padding-top: 70px;
+}
+
+.projects-sidebar.active {
+  right: 0;
+}
+
+.projects-sidebar a {
+  display: block;
+  padding: 15px 30px;
+  color: #00f2fe;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.projects-sidebar a:hover {
+  color: #0ff;
+}
+
