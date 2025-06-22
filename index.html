@@ -6,93 +6,21 @@
   <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Sidebar */
-    .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-    }
-
-    .sidebar.active {
-      width: 250px;
-    }
-
-    .sidebar a {
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #ddd;
+    /* Submenu styles */
+    .submenu a {
       display: block;
-      transition: 0.2s;
+      padding: 8px 0 8px 15px;
+      color: #ddd;
+      font-size: 0.9em;
+      text-decoration: none;
     }
-
-    .sidebar a:hover {
+    .submenu a:hover {
       color: #fff;
     }
-
-    .closebtn {
-      position: absolute;
-      top: 0;
-      right: 15px;
-      font-size: 36px;
-    }
-
-    /* Hero section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: #1a1a1a;
-      color: white;
-      text-align: center;
-    }
-
-    .explore-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 18px;
-    }
-
-    /* Submenu styles */
-    .submenu {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.4s ease;
-    }
-
-    .submenu.open {
-      max-height: 500px;
-    }
-
-    .submenu a {
-      padding-left: 40px;
-      font-size: 16px;
-      color: #bbb;
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      padding: 10px;
-      border-radius: 50%;
-      z-index: 1001;
-    }
-
-    .whatsapp-button img {
-      width: 30px;
-      height: 30px;
+    /* Optional: cursor pointer on submenu toggle */
+    .submenu-toggle {
+      cursor: pointer;
+      user-select: none;
     }
   </style>
 </head>
@@ -103,13 +31,13 @@
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
 
-    <!-- Toggle Projects submenu -->
-    <a href="javascript:void(0)" onclick="toggleSubmenu()">Projects &#9662;</a>
-    <div id="projects-submenu" class="submenu">
-      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank">
+    <!-- Projects with submenu -->
+    <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
+    <div id="projects-submenu" class="submenu" style="display: none;">
+      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
         Raspberry Pi Pico Projects
       </a>
-      <!-- Add more project links below -->
+      <!-- Add more project links here -->
     </div>
 
     <a href="cv.html">CV</a>
@@ -140,11 +68,16 @@
 
     function toggleSubmenu() {
       const submenu = document.getElementById("projects-submenu");
-      submenu.classList.toggle("open");
+      if (submenu.style.display === "none" || submenu.style.display === "") {
+        submenu.style.display = "block";
+      } else {
+        submenu.style.display = "none";
+      }
     }
   </script>
 
 </body>
 </html>
+
 
 
