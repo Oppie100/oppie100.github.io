@@ -5,43 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Submenu styles */
-    .submenu a {
-      display: block;
-      padding: 8px 0 8px 15px;
-      color: #ddd;
-      font-size: 0.9em;
-      text-decoration: none;
-    }
-    .submenu a:hover {
-      color: #fff;
-    }
-    /* Optional: cursor pointer on submenu toggle */
-    .submenu-toggle {
-      cursor: pointer;
-      user-select: none;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
+  <!-- Sidebar (Explore Menu) -->
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
-
-    <!-- Projects with submenu -->
-    <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
-    <div id="projects-submenu" class="submenu" style="display: none;">
-      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
-        Raspberry Pi Pico Projects
-      </a>
-      <!-- Add more project links here -->
-    </div>
-
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Projects Slide-In Panel -->
+  <div id="projects-panel" class="projects-panel">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleProjectsPanel()">&times;</a>
+    <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
+      Raspberry Pi Pico Projects
+    </a>
+    <!-- Add more projects here -->
   </div>
 
   <!-- Hero Section -->
@@ -50,7 +31,10 @@
       <h1>Johan Opperman</h1>
       <p>Tech Enthusiast • Developer • Creator</p>
     </div>
+
+    <!-- Buttons -->
     <button class="explore-button" onclick="toggleSidebar()">☰ Explore</button>
+    <button class="projects-button" onclick="toggleProjectsPanel()">📁 Projects</button>
   </div>
 
   <!-- WhatsApp Floating Button -->
@@ -61,20 +45,17 @@
     <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp Icon" />
   </a>
 
+  <!-- JavaScript -->
   <script>
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("active");
     }
 
-    function toggleSubmenu() {
-      const submenu = document.getElementById("projects-submenu");
-      if (submenu.style.display === "none" || submenu.style.display === "") {
-        submenu.style.display = "block";
-      } else {
-        submenu.style.display = "none";
-      }
+    function toggleProjectsPanel() {
+      document.getElementById("projects-panel").classList.toggle("active");
     }
   </script>
 
 </body>
 </html>
+
