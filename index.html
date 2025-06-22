@@ -12,14 +12,14 @@
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
-    <a href="javascript:void(0)" onclick="toggleProjectsPanel()">Projects</a>
+    <a href="javascript:void(0)" onclick="openProjectsPanel()">Projects</a>
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
   </div>
 
   <!-- Projects Slide-Out Panel -->
   <div id="projects-panel" class="projects-panel">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleProjectsPanel()">&times;</a>
+    <a href="javascript:void(0)" class="backbtn" onclick="backToExplore()">← Back</a>
     <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
       Raspberry Pi Pico Projects
     </a>
@@ -32,8 +32,6 @@
       <h1>Johan Opperman</h1>
       <p>Tech Enthusiast • Developer • Creator</p>
     </div>
-
-    <!-- Explore Button -->
     <button class="explore-button" onclick="toggleSidebar()">☰ Explore</button>
   </div>
 
@@ -51,8 +49,14 @@
       document.getElementById("sidebar").classList.toggle("active");
     }
 
-    function toggleProjectsPanel() {
-      document.getElementById("projects-panel").classList.toggle("active");
+    function openProjectsPanel() {
+      document.getElementById("sidebar").classList.remove("active");
+      document.getElementById("projects-panel").classList.add("active");
+    }
+
+    function backToExplore() {
+      document.getElementById("projects-panel").classList.remove("active");
+      document.getElementById("sidebar").classList.add("active");
     }
   </script>
 
