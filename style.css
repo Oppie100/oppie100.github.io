@@ -61,18 +61,23 @@
 
   <script>
     function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("active");
+      const sidebar = document.getElementById("sidebar");
+      const submenu = document.getElementById("projects-submenu");
+
+      sidebar.classList.toggle("active");
+
+      // Close projects submenu if sidebar is closing
+      if (!sidebar.classList.contains("active")) {
+        submenu.classList.remove("active");
+      }
     }
 
     function toggleSubmenu() {
       const submenu = document.getElementById("projects-submenu");
-      if (submenu.style.display === "none" || submenu.style.display === "") {
-        submenu.style.display = "block";
-      } else {
-        submenu.style.display = "none";
-      }
+      submenu.classList.toggle("active");
     }
   </script>
+
 
 </body>
 </html> 
