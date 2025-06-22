@@ -5,138 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: white;
-    }
-
-    /* MAIN SIDEBAR */
-    .sidebar {
-      height: 100%;
-      width: 250px;
-      position: fixed;
-      left: -250px;
-      top: 0;
-      background-color: #333;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-      z-index: 1000;
-    }
-
-    .sidebar.active {
-      left: 0;
-    }
-
-    .sidebar a {
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #ddd;
-      display: block;
-    }
-
-    .sidebar a:hover {
-      color: #fff;
-    }
-
-    .closebtn {
-      position: absolute;
-      top: 0;
-      right: 10px;
-      font-size: 36px;
-      margin-left: 50px;
-      color: white;
-    }
-
-    /* PROJECTS SLIDE-OUT */
-    .submenu-sidebar {
-      height: 100%;
-      width: 250px;
-      position: fixed;
-      left: -250px;
-      top: 0;
-      background-color: #444;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-      z-index: 999;
-    }
-
-    .submenu-sidebar.active {
-      left: 250px; /* aligns next to main sidebar */
-    }
-
-    .submenu-sidebar a {
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 16px;
-      color: #ccc;
-      display: block;
-    }
-
-    .submenu-sidebar a:hover {
-      color: #fff;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 100px 20px 40px;
-      text-align: center;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .explore-button {
-      margin-top: 30px;
-      font-size: 20px;
-      background-color: #222;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    /* WHATSAPP */
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1100;
-    }
-
-    .whatsapp-button img {
-      width: 50px;
-      height: 50px;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- MAIN SIDEBAR -->
+  <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
-    <a href="javascript:void(0)" onclick="toggleProjects()">Projects &#9654;</a>
+    <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9654;</a>
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- PROJECTS SLIDE-OUT MENU -->
-  <div id="projectsMenu" class="submenu-sidebar">
-    <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank">Raspberry Pi Pico Projects</a>
-    <!-- Add more project links here -->
+  <!-- Projects submenu (slide-out) -->
+  <div id="projects-submenu" class="submenu-sidebar">
+    <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
+      Raspberry Pi Pico Projects
+    </a>
   </div>
 
-  <!-- HERO SECTION -->
+  <!-- Hero Section -->
   <div class="hero">
     <div class="hero-content">
       <h1>Johan Opperman</h1>
@@ -145,7 +33,34 @@
     </div>
   </div>
 
-  <!-- WHATSAPP FLOATING BUTTON -->
-  <a href="https://wa.me/27799231887?text=Hi%20Johan!%20I%20have%20a%20question%20about%20y
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/27799231887?text=Hi%20Johan!%20I%20have%20a%20question%20about%20your%20CV." 
+     target="_blank" 
+     class="whatsapp-button" 
+     title="Chat with me on WhatsApp">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp Icon" />
+  </a>
 
+  <!-- JavaScript -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const submenu = document.getElementById("projects-submenu");
+
+      sidebar.classList.toggle("active");
+
+      // Close submenu if sidebar is closing
+      if (!sidebar.classList.contains("active")) {
+        submenu.classList.remove("active");
+      }
+    }
+
+    function toggleSubmenu() {
+      const submenu = document.getElementById("projects-submenu");
+      submenu.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
 
