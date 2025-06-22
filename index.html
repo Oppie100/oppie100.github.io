@@ -31,14 +31,19 @@
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
 
-    <!-- Projects with submenu -->
-    <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
-    <div id="projects-submenu" class="submenu" style="display: none;">
-      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
-        Raspberry Pi Pico Projects
-      </a>
-      <!-- Add more project links here -->
-    </div>
+   <!-- Projects Toggle in Sidebar -->
+<a href="javascript:void(0)" class="submenu-toggle" onclick="openProjectsSubmenu()">Projects ›</a>
+
+<!-- Slide-out Projects Panel -->
+<div id="projectsSidebar" class="projects-sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeProjectsSubmenu()">&times;</a>
+  <h3 style="padding: 20px; color: #00f2fe;">Projects</h3>
+  <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank">
+    Raspberry Pi Pico Projects
+  </a>
+  <!-- Add more project links below -->
+</div>
+
 
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
