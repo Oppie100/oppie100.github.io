@@ -1,206 +1,80 @@
-/* Basic Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Johan Opperman</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Submenu styles */
+    .submenu a {
+      display: block;
+      padding: 8px 0 8px 15px;
+      color: #ddd;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+    .submenu a:hover {
+      color: #fff;
+    }
+    /* Optional: cursor pointer on submenu toggle */
+    .submenu-toggle {
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
 
-/* General styles */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #000000; /* Black background */
-  color: #00f2fe; /* Techy cyan text */
-  overflow-x: hidden;
-}
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+    <a href="about.html">About</a>
 
-/* Hero Section */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 1rem;
-}
+    <!-- Projects with submenu -->
+    <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
+    <div id="projects-submenu" class="submenu" style="display: none;">
+      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
+        Raspberry Pi Pico Projects
+      </a>
+      <!-- Add more project links here -->
+    </div>
 
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #00f2fe;
-  text-shadow: 0 0 5px #00f2fe;
-}
+    <a href="cv.html">CV</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-.hero p {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: #0ff;
-  text-shadow: 0 0 4px #0ff;
-}
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Johan Opperman</h1>
+      <p>Tech Enthusiast • Developer • Creator</p>
+    </div>
+    <button class="explore-button" onclick="toggleSidebar()">☰ Explore</button>
+  </div>
 
-/* Explore Button */
-.explore-button {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #00f2fe, #0061fe);
-  border: none;
-  color: white;
-  padding: 12px 22px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  border-radius: 8px;
-  box-shadow: 0 0 15px #00f2fe;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  user-select: none;
-  z-index: 1001;
-}
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/27799231887?text=Hi%20Johan!%20I%20have%20a%20question%20about%20your%20CV." 
+     target="_blank" 
+     class="whatsapp-button" 
+     title="Chat with me on WhatsApp">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp Icon" />
+  </a>
 
-.explore-button:hover {
-  background: linear-gradient(135deg, #0061fe, #00f2fe);
-  box-shadow: 0 0 25px #00f2fe;
-}
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
 
-/* Sidebar Styles */
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -280px; /* hidden off-screen */
-  width: 280px;
-  height: 100vh;
-  background: #121212;
-  box-shadow: -4px 0 15px rgba(0, 242, 254, 0.3);
-  padding-top: 70px;
-  display: flex;
-  flex-direction: column;
-  transition: right 0.4s ease;
-  z-index: 1000;
-  overflow-y: auto;
-}
+    function toggleSubmenu() {
+      const submenu = document.getElementById("projects-submenu");
+      if (submenu.style.display === "none" || submenu.style.display === "") {
+        submenu.style.display = "block";
+      } else {
+        submenu.style.display = "none";
+      }
+    }
+  </script>
 
-/* Sidebar Active */
-.sidebar.active {
-  right: 0;
-}
-
-/* Close button */
-.sidebar .closebtn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 32px;
-  color: #00f2fe;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.3s ease;
-}
-
-.sidebar .closebtn:hover {
-  color: #0ff;
-}
-
-/* Sidebar links */
-.sidebar a {
-  padding: 15px 30px;
-  font-size: 18px;
-  color: #00f2fe;
-  text-decoration: none;
-  display: block;
-  opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  letter-spacing: 1px;
-  font-weight: 600;
-  user-select: none;
-}
-
-.sidebar.active a {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Staggered animation delay for sidebar links */
-.sidebar.active a:nth-child(2) { transition-delay: 0.1s; }
-.sidebar.active a:nth-child(3) { transition-delay: 0.2s; }
-.sidebar.active a:nth-child(4) { transition-delay: 0.3s; }
-.sidebar.active a:nth-child(5) { transition-delay: 0.4s; }
-.sidebar.active a:nth-child(6) { transition-delay: 0.5s; }
-
-/* Scrollbar style for sidebar */
-.sidebar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background-color: #00f2fe;
-  border-radius: 3px;
-}
-
-/* WhatsApp Floating Button */
-.whatsapp-button {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
-  background-color: linear-gradient(135deg, #00f2fe, #0061fe);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 15px #00f2fe, 0 0 30px #0061fe;
-  transition: transform 0.3s, box-shadow 0.3s;
-  z-index: 1001;
-  cursor: pointer;
-}
-
-.whatsapp-button img {
-  width: 28px;
-  height: 28px;
-  filter: brightness(0) invert(1); /* Make WhatsApp icon white for contrast */
-}
-
-.whatsapp-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px #00f2fe, 0 0 45px #0061fe;
-}
-
-/* Projects Slide-out Panel */
-.projects-sidebar {
-  position: fixed;
-  top: 0;
-  right: -280px;
-  width: 280px;
-  height: 100vh;
-  background: #1a1a1a;
-  box-shadow: -4px 0 15px rgba(0, 242, 254, 0.3);
-  overflow-y: auto;
-  transition: right 0.4s ease;
-  z-index: 1002;
-  padding-top: 70px;
-}
-
-.projects-sidebar.active {
-  right: 0;
-}
-
-.projects-sidebar a {
-  display: block;
-  padding: 15px 30px;
-  color: #00f2fe;
-  font-size: 18px;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.projects-sidebar a:hover {
-  color: #0ff;
-}
-
+</body>
+</html> 
