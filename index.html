@@ -5,24 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Submenu styles */
-    .submenu a {
-      display: block;
-      padding: 8px 0 8px 15px;
-      color: #ddd;
-      font-size: 0.9em;
-      text-decoration: none;
-    }
-    .submenu a:hover {
-      color: #fff;
-    }
-    /* Optional: cursor pointer on submenu toggle */
-    .submenu-toggle {
-      cursor: pointer;
-      user-select: none;
-    }
-  </style>
 </head>
 <body>
 
@@ -30,16 +12,7 @@
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
-
-    <!-- Projects with submenu -->
-    <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
-    <div id="projects-submenu" class="submenu" style="display: none;">
-      <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
-        Raspberry Pi Pico Projects
-      </a>
-      <!-- Add more project links here -->
-    </div>
-
+    <a href="projects.html">Projects</a>
     <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -65,19 +38,7 @@
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("active");
     }
-
-    function toggleSubmenu() {
-      const submenu = document.getElementById("projects-submenu");
-      if (submenu.style.display === "none" || submenu.style.display === "") {
-        submenu.style.display = "block";
-      } else {
-        submenu.style.display = "none";
-      }
-    }
   </script>
 
 </body>
 </html>
-
-
-
