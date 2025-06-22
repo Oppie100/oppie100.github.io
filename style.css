@@ -97,7 +97,9 @@ body, html {
   color: #0ff;
 }
 
+/* Sidebar links */
 .sidebar a {
+  display: block;
   padding: 15px 30px;
   font-size: 18px;
   color: #00f2fe;
@@ -107,6 +109,7 @@ body, html {
   transition: opacity 0.4s ease, transform 0.4s ease;
   letter-spacing: 1px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .sidebar.active a {
@@ -142,20 +145,22 @@ body, html {
   box-shadow: 0 0 18px #00f2fe, 0 0 30px #00f2fe;
 }
 
-/* Submenu Slide Styles */
+/* Projects sliding submenu panel */
 .submenu-slide {
   position: fixed;
-  top: 70px; /* match sidebar padding */
-  right: -280px;
+  top: 70px;                   /* align with sidebar padding top */
+  right: -280px;               /* hide offscreen initially */
   width: 280px;
-  height: auto;
+  height: calc(100vh - 70px);  /* fill remaining viewport height */
   background: #1a1a1a;
   box-shadow: -4px 0 10px rgba(0, 242, 254, 0.2);
   padding: 20px;
   transition: right 0.4s ease;
-  z-index: 1001;
+  z-index: 1002;               /* higher than sidebar */
+  overflow-y: auto;           /* scroll if content overflows */
 }
 
+/* Links inside sliding submenu */
 .submenu-slide a {
   display: block;
   color: #00f2fe;
@@ -163,13 +168,14 @@ body, html {
   text-decoration: none;
   padding: 10px 0;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .submenu-slide a:hover {
   color: #0ff;
 }
 
-/* Active state */
+/* Open state - slide in from right */
 .submenu-slide.open {
   right: 0;
 }
