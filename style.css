@@ -1,115 +1,183 @@
-body {
+/* Basic Reset */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Sidebar styles */
-.sidebar {
+/* General styles */
+body, html {
   height: 100%;
-  width: 250px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000000;
+  color: #00f2fe;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #00f2fe;
+  text-shadow: 0 0 5px #00f2fe;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #0ff;
+  text-shadow: 0 0 4px #0ff;
+}
+
+/* Explore Button */
+.explore-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #00f2fe, #0061fe);
+  border: none;
+  color: white;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #00f2fe;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  z-index: 1001;
+}
+
+.explore-button:hover {
+  background: linear-gradient(135deg, #0061fe, #00f2fe);
+  box-shadow: 0 0 25px #00f2fe;
+}
+
+/* Sidebar Styles */
+.sidebar {
   position: fixed;
   top: 0;
-  left: -250px;
-  background-color: #333;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
+  right: -280px;
+  width: 280px;
+  height: 100vh;
+  background: #121212;
+  box-shadow: -4px 0 15px rgba(0, 242, 254, 0.3);
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.4s ease;
   z-index: 1000;
+  overflow-y: auto;
 }
 
 .sidebar.active {
-  left: 0;
+  right: 0;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  color: #00f2fe;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.sidebar .closebtn:hover {
+  color: #0ff;
 }
 
 .sidebar a {
-  padding: 10px 20px;
-  text-decoration: none;
+  padding: 15px 30px;
   font-size: 18px;
-  color: #ddd;
-  display: block;
-}
-
-.sidebar a:hover {
-  color: #fff;
-}
-
-.closebtn {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  font-size: 36px;
-  color: white;
-}
-
-/* Projects submenu sidebar */
-.submenu-sidebar {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: -250px;
-  background-color: #444;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
-  z-index: 999;
-}
-
-.submenu-sidebar.active {
-  left: 250px; /* next to main sidebar */
-}
-
-.submenu-sidebar a {
-  display: block;
-  padding: 8px 20px;
-  color: #ddd;
-  font-size: 0.9em;
+  color: #00f2fe;
   text-decoration: none;
-}
-
-.submenu-sidebar a:hover {
-  color: #fff;
-}
-
-.submenu-toggle {
-  cursor: pointer;
+  display: block;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  letter-spacing: 1px;
+  font-weight: 600;
   user-select: none;
 }
 
-/* Hero section */
-.hero {
-  padding: 100px 20px 40px;
-  text-align: center;
+.sidebar.active a {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Slide-out submenu */
+.submenu-panel {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100vh;
+  background: #1a1a1a;
+  box-shadow: -3px 0 10px rgba(0, 242, 254, 0.2);
+  transition: right 0.4s ease;
+  padding: 60px 20px;
+  z-index: 999;
 }
 
-.explore-button {
-  margin-top: 30px;
-  font-size: 20px;
-  background-color: #222;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
+.submenu-panel.active {
+  right: 0;
 }
 
-/* WhatsApp Button */
+.submenu-panel a {
+  color: #00f2fe;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.submenu-panel a:hover {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+/* WhatsApp Floating Button */
 .whatsapp-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1100;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: #00f2fe;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px #00f2fe, 0 0 20px #00f2fe;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 1001;
+  cursor: pointer;
 }
 
 .whatsapp-button img {
-  width: 50px;
-  height: 50px;
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px #00f2fe, 0 0 30px #00f2fe;
 }
