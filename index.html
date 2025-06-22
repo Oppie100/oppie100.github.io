@@ -6,7 +6,13 @@
   <title>Johan Opperman</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Submenu styles */
+    /* Sidebar submenu styles */
+    .submenu {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease-out;
+    }
+
     .submenu a {
       display: block;
       padding: 8px 0 8px 15px;
@@ -14,13 +20,19 @@
       font-size: 0.9em;
       text-decoration: none;
     }
+
     .submenu a:hover {
       color: #fff;
     }
-    /* Optional: cursor pointer on submenu toggle */
+
     .submenu-toggle {
       cursor: pointer;
       user-select: none;
+    }
+
+    .submenu.open {
+      max-height: 500px; /* large enough to fit all submenu items */
+      transition: max-height 0.5s ease-in;
     }
   </style>
 </head>
@@ -31,13 +43,13 @@
     <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
     <a href="about.html">About</a>
 
-    <!-- Projects with submenu -->
+    <!-- Projects submenu -->
     <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu()">Projects &#9662;</a>
-    <div id="projects-submenu" class="submenu" style="display: none;">
+    <div id="projects-submenu" class="submenu">
       <a href="https://github.com/Oppie100/Raspberry-Pi-Pico-Projects" target="_blank" rel="noopener noreferrer">
         Raspberry Pi Pico Projects
       </a>
-      <!-- Add more project links here -->
+      <!-- Add more links if needed -->
     </div>
 
     <a href="cv.html">CV</a>
@@ -68,13 +80,10 @@
 
     function toggleSubmenu() {
       const submenu = document.getElementById("projects-submenu");
-      if (submenu.style.display === "none" || submenu.style.display === "") {
-        submenu.style.display = "block";
-      } else {
-        submenu.style.display = "none";
-      }
+      submenu.classList.toggle("open");
     }
   </script>
 
 </body>
 </html>
+
